@@ -20,6 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ── Day selector (Refeições) ──────────────────────────
+  const dayBtns = document.querySelectorAll('.day-btn');
+  const dayPages = document.querySelectorAll('.day-page');
+
+  dayBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const day = btn.dataset.day;
+
+      dayBtns.forEach(b => b.classList.remove('active'));
+      dayPages.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.getElementById(`day-${day}`).classList.add('active');
+    });
+  });
+
   // ── Highlight wine items on click ─────────────────────
   document.querySelectorAll('.wine-item').forEach(item => {
     item.addEventListener('click', () => {
